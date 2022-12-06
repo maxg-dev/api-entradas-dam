@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\{EntradaController, EventoController};
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/entradas',EntradaController::class);
+Route::apiResource('/eventos',EventoController::class);
