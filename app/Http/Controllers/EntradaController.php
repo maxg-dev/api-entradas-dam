@@ -15,7 +15,7 @@ class EntradaController extends Controller
      */
     public function index()
     {
-        //
+        return Entrada::all();
     }
 
     /**
@@ -26,7 +26,10 @@ class EntradaController extends Controller
      */
     public function store(StoreEntradaRequest $request)
     {
-        //
+        $entrada = new Entrada();
+        $entrada->link = $request->link;
+        $entrada->save();
+        return $entrada;
     }
 
     /**
@@ -37,7 +40,7 @@ class EntradaController extends Controller
      */
     public function show(Entrada $entrada)
     {
-        //
+        return $entrada;
     }
 
     /**
@@ -49,7 +52,9 @@ class EntradaController extends Controller
      */
     public function update(UpdateEntradaRequest $request, Entrada $entrada)
     {
-        //
+        $entrada->link = $request->link;
+        $entrada->save();
+        return $entrada;
     }
 
     /**
@@ -60,6 +65,6 @@ class EntradaController extends Controller
      */
     public function destroy(Entrada $entrada)
     {
-        //
+        $entrada->delete();
     }
 }
