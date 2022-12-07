@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 class Entrada extends Model
 {
     use HasFactory,SoftDeletes;
+
+    public function eventos(){
+        return $this->belongsToMany(Evento::class)->withPivot('correo');
+    }
 }

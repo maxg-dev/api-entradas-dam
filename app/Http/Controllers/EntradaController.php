@@ -15,7 +15,7 @@ class EntradaController extends Controller
      */
     public function index()
     {
-        return Entrada::all();
+        return Entrada::all()->load('eventos');
     }
 
     /**
