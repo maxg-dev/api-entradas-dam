@@ -29,6 +29,7 @@ class EventoController extends Controller
         $evento = new Evento();
         $evento->nombre = $request->nombre;
         $evento->fecha  = $request->fecha;
+        $evento->direccion = $request->direccion;
         $evento->precio = $request->precio;
         $evento->estado = $request->estado;
         $evento->save();
@@ -57,6 +58,7 @@ class EventoController extends Controller
     {
         $evento->nombre = $request->nombre;
         $evento->fecha  = $request->fecha;
+        $evento->direccion  = $request->direccion;
         $evento->precio = $request->precio;
         $evento->estado = $request->estado;
         $evento->save();
@@ -72,5 +74,9 @@ class EventoController extends Controller
     public function destroy(Evento $evento)
     {
         $evento->delete();
+    }
+
+    public function estado(){
+        return Evento::where('estado',true)->get();
     }
 }

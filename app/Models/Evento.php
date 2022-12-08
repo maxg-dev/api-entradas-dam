@@ -9,7 +9,13 @@ class Evento extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $appends = ['entradas_vendidas'];
+
     public function entradas(){
         return $this->belongsToMany(Entrada::class)->withPivot('correo');
+    }
+
+    public function getEntradasVendidasAttribute(){
+        return count($this->entradas);
     }
 }

@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('/entradas',EntradaController::class);
 Route::apiResource('/eventos',EventoController::class);
 Route::apiResource('/entradaEvento',EntradaEventoController::class);
+Route::get('/estado',[EventoController::class,'estado']);
+Route::post('/email',[EntradaController::class,'email']);

@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('entradas', function (Blueprint $table) {
             $table->id();
-            $table->string('link',100);
             $table->softDeletes();
             $table->timestamps();
         });

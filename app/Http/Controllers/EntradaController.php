@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entrada;
 use App\Http\Requests\StoreEntradaRequest;
-use App\Http\Requests\UpdateEntradaRequest;
+use App\Http\Requests\{UpdateEntradaRequest, EmailRequest};
 
 class EntradaController extends Controller
 {
@@ -27,7 +27,6 @@ class EntradaController extends Controller
     public function store(StoreEntradaRequest $request)
     {
         $entrada = new Entrada();
-        $entrada->link = $request->link;
         $entrada->save();
         return $entrada;
     }
@@ -40,7 +39,7 @@ class EntradaController extends Controller
      */
     public function show(Entrada $entrada)
     {
-        return $entrada;
+        return $entrada->load('eventos');
     }
 
     /**
@@ -52,9 +51,7 @@ class EntradaController extends Controller
      */
     public function update(UpdateEntradaRequest $request, Entrada $entrada)
     {
-        $entrada->link = $request->link;
-        $entrada->save();
-        return $entrada;
+        //
     }
 
     /**
@@ -65,6 +62,6 @@ class EntradaController extends Controller
      */
     public function destroy(Entrada $entrada)
     {
-        $entrada->delete();
+        //
     }
 }

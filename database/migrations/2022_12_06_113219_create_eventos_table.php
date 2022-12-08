@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',50);
             $table->date('fecha');
+            $table->string('direccion',100);
             $table->unsignedInteger('precio');
             $table->boolean('estado');
             $table->timestamps();
